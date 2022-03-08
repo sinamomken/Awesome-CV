@@ -275,6 +275,10 @@
 % Usage: \mobile{<mobile number>}
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}
 
+% Defines writer's landline phone (optional)
+% Usage: \phone{<phone number>}
+\newcommand*{\phone}[1]{\def\@phone{#1}}
+
 % Defines writer's email (optional)
 % Usage: \email{<email address>}
 \newcommand*{\email}[1]{\def\@email{#1}}
@@ -482,6 +486,12 @@
         {%
           \href{tel:\@mobile}{\faMobile\acvHeaderIconSep\@mobile}%
           \setbool{isstart}{false}%
+        }%
+      \ifthenelse{\isundefined{\@phone}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{tel:\@phone}{\faPhone\acvHeaderIconSep\@phone}%
         }%
       \ifthenelse{\isundefined{\@email}}%
         {}%
