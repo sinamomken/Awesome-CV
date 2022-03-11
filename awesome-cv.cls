@@ -681,7 +681,15 @@
   \end{tabular*}%
 }
 
+% Define an environment for cventry
+\newenvironment{cvprojects}{%
+  %\vspace{\acvSectionContentTopSkip}
+}{%
+ \vspace{-4mm}
+}
+
 \newcommand{\cvproject}[2]{
+  \vspace{1mm}
   \projecttitlestyle{#1} \newline
   \descriptionstyle{#2}
 }
@@ -718,7 +726,7 @@
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
-}{%
+}{%Backend development of the Omni-Channel project of Karafarin Bank to create a unified backend platform for web and mobile clients to connect.
     \end{tabular*}
   \end{center}
 }
@@ -763,13 +771,14 @@
 \newenvironment{projectitems}{%
   \vspace{1mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=8mm, nosep, noitemsep]
+  \begin{itemize}[leftmargin=8mm, nosep]
+    \setlength\itemsep{1mm}
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-4.0mm}
+%  \vspace{-4.0mm}
 }
 
 
