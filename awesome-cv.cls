@@ -204,6 +204,9 @@
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
+% For elements of project
+\newcommand*{\projecttitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext}\hspace{4mm} #1}}
+
 % For elements of subentry
 \newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
 \newcommand*{\subentrypositionstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\scshape\color{graytext} #1}}
@@ -664,7 +667,7 @@
 }
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-\newcommand*{\cventry}[5]{%
+\newcommand{\cventry}[5]{%
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
@@ -674,7 +677,13 @@
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+    %\multicolumn{2}{L{\textwidth}}{#5}
   \end{tabular*}%
+}
+
+\newcommand{\cvproject}[2]{
+  \projecttitlestyle{#1} \newline
+  \descriptionstyle{#2}
 }
 
 % Define an environment for cvsubentry
@@ -742,6 +751,19 @@
   \vspace{-4.0mm}
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{-4.0mm}
+}
+
+% Define an environment for projectitems(for cvproject)
+\newenvironment{projectitems}{%
+  \vspace{1mm}
+  \begin{justify}
+  \begin{itemize}[leftmargin=8mm, nosep, noitemsep]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
 }{%
