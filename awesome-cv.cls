@@ -79,6 +79,8 @@
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
+% Needed to deal with numeral nth
+\RequirePackage[super]{nth}
 % Needed to deal hyperlink
 \RequirePackage[hidelinks,unicode]{hyperref}
 \hypersetup{%
