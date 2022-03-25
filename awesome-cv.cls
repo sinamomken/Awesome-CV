@@ -81,6 +81,8 @@
 \RequirePackage{parskip}
 % Needed to deal with numeral nth
 \RequirePackage[super]{nth}
+% Needed to deal with \makecell
+\RequirePackage{makecell}
 % Needed to deal hyperlink
 \RequirePackage[hidelinks,unicode]{hyperref}
 \hypersetup{%
@@ -683,13 +685,14 @@
   \end{tabular*}%
 }
 
-% Define an environment for cventry
+% Define an environment for cvprojects
 \newenvironment{cvprojects}{%
   %\vspace{\acvSectionContentTopSkip}
 }{%
  \vspace{-4mm}
 }
 
+% Define a line of cv project
 \newcommand{\cvproject}[2]{
   \vspace{1mm}
   \projecttitlestyle{#1} \newline
@@ -745,7 +748,7 @@
   \begin{center}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{\textwidth * \real{0.9}}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{\textwidth * \real{0.85}}}
 }{%
     \end{tabular*}
   \end{center}
@@ -756,7 +759,7 @@
 	\skilltypestyle{#1} & \skillsetstyle{#2} \\
 }
 
-% Define an environment for cvitems(for cventry)
+% Define an environment for cvitems (for cventry)
 \newenvironment{cvitems}{%
   \vspace{-4.0mm}
   \begin{justify}
@@ -769,7 +772,7 @@
   \vspace{-4.0mm}
 }
 
-% Define an environment for projectitems(for cvproject)
+% Define an environment for projectitems (for cvproject)
 \newenvironment{projectitems}{%
   \vspace{1mm}
   \begin{justify}
